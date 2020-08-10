@@ -1,0 +1,38 @@
+# Linux Environment (Elementary OS)
+
+
+# Snap
+sudo apt update
+sudo apt install snapd
+
+# Visual Studio Code
+sudo snap install vscode --classic
+
+# Insomnia
+sudo snap install insomnia
+
+# Discord
+sudo snap install discord
+
+# Firefox
+sudo snap install firefox
+
+# Visual Studio Code Extensions
+ms-python.python
+esbenp.prettier-vscode
+visualstudioexptteam.vscodeintellicode
+ritwickdey.liveserver
+coenraads.bracket-pair-colorizer
+xabikos.javascriptsnippets
+ms-vscode.js-debug-nightly
+dbaeumer.vscode-eslint
+msjsdiag.vscode-react-native
+
+# Oh My Zsh
+https://ohmyz.sh/   
+
+# Elementary Tweaks
+https://github.com/elementary-tweaks/elementary-tweaks
+
+# gh-cli
+sudo apt install ./gh_*_linux_amd64.deb
