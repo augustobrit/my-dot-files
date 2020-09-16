@@ -13,7 +13,6 @@
   "editor.letterSpacing": 0.4,
   "editor.lineHeight": 20,
   "editor.formatOnSave": true,
-  "editor.ruller": [80, 120],
   "editor.tabSize": 2,
   "editor.renderLineHighlight": "gutter",
   "terminal.integrated.fontSize": 12,
@@ -28,7 +27,6 @@
   "breadcrumbs.enabled": true,
   "editor.parameterHints.enabled": false,
   "editor.codeActionsOnSave": {
-    // For ESLint
     "source.fixAll.eslint": true
   },
   "eslint.validate": [
