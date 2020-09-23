@@ -1,4 +1,5 @@
 {
+  "terminal.integrated.shell.linux": "/bin/zsh"
   "explorer.compactFolders": false,
   "workbench.editor.labelFormat": "short",
   "extensions.ignoreRecommendations": true,
