@@ -8,6 +8,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/augusto/.oh-my-zsh"
 
+# Define default editor
+export EDITOR=/usr/bin/vscode
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -97,9 +100,17 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Aliases to most used folders
+alias home='cd ~/'
+alias dls='cd ~/downloads'
+alias projects='cd ~/projects/'
+alias dbs='cd ~/databases/'
+alias github='cd ~/github/'
+alias gist='cd ~/gist/'
+alias sql='cd ~/sql/'
+alias environments='cd ~/environments/'
+# Open ~/.zshrc in using the default editor specified in $EDITOR
+alias ec="$EDITOR $HOME/.zshrc"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -145,15 +156,4 @@ if [[ "$TERM_PROGRAM" == "Hyper" ]]; then
   SPACESHIP_GIT_BRANCH_SHOW=false
 fi
 
-# Aliases to most used folders
-alias home='cd ~/'
-alias dls='cd ~/downloads'
-alias projects='cd ~/projects/'
-alias dbs='cd ~/databases/'
-alias github='cd ~/github/'
-alias gist='cd ~/gist/'
-alias sql='cd ~/sql/'
-alias environments='cd ~/environments/'
 
-# Open ~/.zshrc in using the default editor specified in $EDITOR
-alias ec="$EDITOR $HOME/.zshrc"
