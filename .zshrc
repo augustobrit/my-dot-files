@@ -6,7 +6,7 @@
 #export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/augusto/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Define default editor
 export EDITOR=/usr/bin/vscode
