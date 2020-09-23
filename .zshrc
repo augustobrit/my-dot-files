@@ -1,14 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export ANDROID_HOME=~/Android/Sdk
-export PATH="$PATH:$ANDROID_HOME/tools"
-export PATH="$PATH:$ANDROID_HOME/platform-tools"
+#export ANDROID_HOME=~/Android/Sdk
+#export PATH="$PATH:$ANDROID_HOME/tools"
+#export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/diegofernandes/.oh-my-zsh"
-export PATH="$PATH:/usr/local/bin"
-export PATH="$HOME/.fastlane/bin:$PATH"
+export ZSH="/home/augusto/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -115,6 +113,7 @@ pasteinit() {
 pastefinish() {
   zle -N self-insert $OLD_SELF_INSERT
 }
+
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 
@@ -145,3 +144,16 @@ if [[ "$TERM_PROGRAM" == "Hyper" ]]; then
   SPACESHIP_DIR_SHOW=false
   SPACESHIP_GIT_BRANCH_SHOW=false
 fi
+
+# Aliases to most used folders
+alias home='cd ~/'
+alias dls='cd ~/downloads'
+alias projects='cd ~/projects/'
+alias dbs='cd ~/databases/'
+alias github='cd ~/github/'
+alias gist='cd ~/gist/'
+alias sql='cd ~/sql/'
+alias environments='cd ~/environments/'
+
+# Open ~/.zshrc in using the default editor specified in $EDITOR
+alias ec="$EDITOR $HOME/.zshrc"
