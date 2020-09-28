@@ -4,54 +4,54 @@ source core/message.sh
 
 TAG="[GIT]"
 
-setup_git_cli() {
+setup_gh_cli() {
+	echo -e ''
+}
+	
+setup_gh() {
+	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+	sudo apt-add-repository https://cli.github.com/packages
+
+	sudo apt install gh
 }
 
-setup_git(){
+setup_git() {
 	sudo apt install git
-	
+
 	clear
-	echo -e "\n$TAG Installation successful\n"
+	
+	echo -e "\n$TAG $SUCCESS_MSG\n"
 	git --version
-	
-	echo -e "\n$TAG Setting up User and Email\n"
-	
+
+	echo -e "\n$TAG Setup User and Email\n"
+
 	git config --global user.name $1
 	git config --global user.email $2
-	
+
 	git config --list
 }
 
-init_git(){
+init_git() {
 	init_msg $TAG
 	response=$?
-	
-	if [ $response -eq 1 ]
+
+	if [ $response -eq 1 ] 
 	then
 		echo -e "\n$TAG $INSTALL_MSG\n"
-			
-		sudo apt install curl
-		
-		echo -e "\n$TAG $SUCCESS_MSG\n"
-		curl --version
-	else 
+
+		echo "$TAG Enter your GIT Username"
+		read git_username
+
+		echo "$TAG Enter your GIT Email"
+		read git_email
+
+		if [ -z "$git_username" -o -z "$git_email" ]; then
+			echo "\nUsername and Email can't be empty.\n"
+			init_git
+		else
+			setup_git $git_username $git_email
+		fi
+	else
 		echo -e "\n$TAG $CANCEL_MSG\n"
 	fi
-	
-	echo -e "\n$TAG Installing Git\n"
-	
-	echo "$TAG Enter your GIT Username"
-	read git_username
-	
-	echo "$TAG Enter your GIT Email"
-	read git_email
-
-	if [ -z "$git_username" -o -z "$git_email" ] 
-	then
-		echo "\nUsername and Email can't be empty.\n"
-		init_git
-	else
-		setup_git $git_username $git_email
-	fi
 }
-

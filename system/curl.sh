@@ -4,11 +4,11 @@ source core/message.sh
 
 TAG="[CURL]"
 
-function init_curl() {
+init_curl() {
 	init_msg $TAG
-	msg_response=$?
+	response=$?
 	
-	if [ $msg_response -eq 1 ]
+	if [ $response -eq 1 ]
 	then
 		echo -e "\n$TAG $INSTALL_MSG\n"
 			
