@@ -1,7 +1,11 @@
 #!/bin/sh
 
-export WELCOME_MSG="Ubuntu Development Environment"
-export COPYRIGHT_MSG="Writen by Augusto Brito | augustobrito.me | contato@augustobrito.me"
+export WELCOME_MSG="Welcome to Development Environment"
+export COPYRIGHT_MSG="Writen by Augusto Brito"
+export CONTACT_MSG="augustobrito.me | contato@augustobrito.me"
+export UBUNTU_MSG="Ubuntu Environment"
+export PYTHON_MSG="Python Environment"
+export NODEJS_MSG="NodeJS Environment"
 
 export INSTALL_MSG="Installing..."
 export CANCEL_MSG="Installation Canceled."

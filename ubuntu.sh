@@ -31,15 +31,41 @@
 #. dracula/gedit.sh
 #. dracula/insomnia.sh
 
-function has() {
-	[[ -x "$(command -v "$1")" ]];
+function init() {
+	echo "------------------------------------------"
+	echo $WELCOME_MSG
+	echo $COPYRIGHT_MSG
+	echo $CONTACT_MSG
+	echo "------------------------------------------"
+	echo
+	echo "Options:"
+	echo "1. Install Ubuntu Environment"
+	echo "2. Install Python Environment"
+	echo "3. Install NodeJS Environment"
+	echo "4. Exit"
+	echo
+	echo -n "What you want to do? "
+	read option
+	
+	case $option in
+		1) init_ubuntu ;;
+		2) init_python ;;
+		3) init_nodejs ;;
+		4) exit ;;
+		*) "Invalid option." ; echo ; init ;;
+	esac
 }
 
-function has_not() {
-	! has "$1"
+function init_ubuntu() {
+	echo "Ubuntu"
 }
 
-#init_os
-init_git
-#init_curl
+function init_python() {
+	echo "Python"
+}
 
+function init_nodejs() {
+	echo "NodeJS"
+}
+
+init

@@ -4,18 +4,18 @@
 . core/tags.sh
 . core/console.sh
 
-setup_gh_cli() {
+function setup_gh_cli() {
 	echo -e ''
 }
 	
-setup_gh() {
+function setup_gh() {
 	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
 	sudo apt-add-repository https://cli.github.com/packages
 
 	sudo apt install gh
 }
 
-setup_git() {
+function setup_git() {
 	log $TAG_GIT $INSTALL_MSG
 	
 	sudo apt install git
