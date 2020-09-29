@@ -1,7 +1,7 @@
 function input(){
 	clear
 	
-	log $1 "Do you want to continue? [Y/n]"
+	echo "$1 → $2? [Y/n]: "
 	read install_input
 	
 	if [ -z "$install_input" ] 
@@ -18,5 +18,5 @@ function input(){
 }
 
 function log() {
-	echo -e "\n → $1 - $2\n"
+	echo -e "\n$1 → $2\n"
 }

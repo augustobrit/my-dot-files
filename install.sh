@@ -58,6 +58,7 @@ function init() {
 
 function init_ubuntu() {
 	echo "Ubuntu"
+	init_git
 }
 
 function init_python() {

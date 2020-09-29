@@ -33,22 +33,28 @@ function setup_git() {
 }
 
 function init_git() {
-	input $TAG_GIT
+	input $TAG_GIT "Do you want to continue"
 	input_res=$?
 
 	if [ $input_res -eq 1 ] 
 	then
 
-		log $TAG_GIT $"Enter your GIT Username"
+		log $TAG_GIT $"Enter your GIT Username: "
 		read git_username
 
-		log $TAG_GIT $"Enter your GIT Email"
+		log $TAG_GIT $"Enter your GIT Email: "
 		read git_email
 
-		if [ -z $git_username -o -z $git_email ]; then
-			log $TAG_GIT $"\nUsername and Email can't be empty.\n"
+		if [ -z $git_username ] || [ -z $git_email ]; then		
+			input $TAG_GIT $"Username and Email can't be empty. Do you want to type again"
+			try_again_input=$?
 			
-			init_git
+			if [ $try_again_input -eq 1 ]; then
+				init_git
+			else
+				exit
+			fi
+			
 		else
 			setup_git $git_username $git_email
 		fi
