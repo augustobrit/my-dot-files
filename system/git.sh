@@ -1,8 +1,8 @@
 #!/bin/sh
 
-source core/message.sh
-
-TAG="[GIT]"
+. core/message.sh
+. core/tags.sh
+. core/console.sh
 
 setup_gh_cli() {
 	echo -e ''
@@ -16,11 +16,12 @@ setup_gh() {
 }
 
 setup_git() {
+	log $TAG_GIT $INSTALL_MSG
+	
 	sudo apt install git
 
-	clear
 	
-	echo -e "\n$TAG $SUCCESS_MSG\n"
+	echo -e "\n$TAG_GIT $SUCCESS_MSG\n"
 	git --version
 
 	echo -e "\n$TAG Setup User and Email\n"
@@ -31,27 +32,27 @@ setup_git() {
 	git config --list
 }
 
-init_git() {
-	init_msg $TAG
-	response=$?
+function init_git() {
+	input $TAG_GIT
+	input_res=$?
 
-	if [ $response -eq 1 ] 
+	if [ $input_res -eq 1 ] 
 	then
-		echo -e "\n$TAG $INSTALL_MSG\n"
 
-		echo "$TAG Enter your GIT Username"
+		log $TAG_GIT $"Enter your GIT Username"
 		read git_username
 
-		echo "$TAG Enter your GIT Email"
+		log $TAG_GIT $"Enter your GIT Email"
 		read git_email
 
-		if [ -z "$git_username" -o -z "$git_email" ]; then
-			echo "\nUsername and Email can't be empty.\n"
+		if [ -z $git_username -o -z $git_email ]; then
+			log $TAG_GIT $"\nUsername and Email can't be empty.\n"
+			
 			init_git
 		else
 			setup_git $git_username $git_email
 		fi
 	else
-		echo -e "\n$TAG $CANCEL_MSG\n"
+		log $TAG_GIT $CANCEL_MSG
 	fi
 }

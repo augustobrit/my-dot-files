@@ -1,0 +1,117 @@
+{
+  // Explorer
+  "explorer.compactFolders": false,
+
+  // Editor
+  "editor.suggestSelection": "first",
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 13,
+  "editor.letterSpacing": 0.4,
+  "editor.lineHeight": 20,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.renderLineHighlight": "gutter",
+  "editor.parameterHints.enabled": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "all",
+  "editor.renderControlCharacters": false,
+
+  // Workbench
+  "workbench.editor.labelFormat": "short",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.activityBar.visible": true,
+  "workbench.statusBar.visible": true,
+  "workbench.colorTheme": "Dracula",
+
+  // Git
+  "git.autofetch": false,
+
+  // ShellScript
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+
+  // Python
+  "python.terminal.activateEnvironment": true,
+  "python.languageServer": "Pylance",
+  "python.pythonPath": "C:\\Python38\\python.exe",
+
+  // Terminal
+  "terminal.integrated.shell.linux": "/bin/zsh",
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+
+  // JavaScript
+  "javascript.suggest.autoImports": true,
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // TypeScript
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "typescript.suggest.autoImports": true,
+
+  // Prettier
+  "prettier.singleQuote": true,
+
+  // Emmet
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "njk": "html"
+  },
+
+  // ESLint
+  "eslint.validate": [
+    {
+      "language": "javascript",
+      "autoFix": true
+    },
+    {
+      "language": "javascriptreact",
+      "autoFix": true
+    },
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
+  ],
+
+  // Intelli Code
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+  // Extensions
+  "extensions.ignoreRecommendations": true,
+
+  // Breadcrumbs
+  "breadcrumbs.enabled": true,
+
+  // Telemetry
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+
+  // Window
+  "window.zoomLevel": 0,
+  "window.menuBarVisibility": "toggle",
+
+  // Explorer
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+
+  // Live Server
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.donotVerifyTags": true
+}
+

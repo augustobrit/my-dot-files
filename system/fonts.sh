@@ -1,7 +1,9 @@
 #!/bin/sh
 
-TAG="[FONTS]"
+function init_fonts() {
+	TAG="[FONTS]"
 
-echo -e "Installing Fonts"
-	
-sudo apt install fonts-firacode
+	echo -e "Installing Fonts"
+		
+	sudo apt install fonts-firacode
+}

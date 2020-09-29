@@ -1,11 +1,18 @@
 #!/bin/sh
 
-TAG="[OS]"
+. core/message.sh
+. core/tags.sh
 
-init_os() {
-	echo -e "$TAG Initializing OS Configuration"
+function init_os() {
+	
+	echo -e "\n$TAG_OS $INSTALL_MSG\n"
 
 	sudo apt autoremove
 	sudo apt update
 	sudo apt upgrade
+}
+
+function stop_os() {
+	sudo apt-get autoclean -y
+	sudo apt-get autoremove -y
 }

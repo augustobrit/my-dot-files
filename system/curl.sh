@@ -1,10 +1,8 @@
 #!/bin/sh
 
-source core/message.sh
+. core/message.sh
 
-TAG="[CURL]"
-
-init_curl() {
+function init_curl() {
 	init_msg $TAG
 	response=$?
 	
