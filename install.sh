@@ -1,72 +1,78 @@
 #!/bin/sh
 
-. core/message.sh
-#. core/color.sh
-
-#. system/os.sh
-. system/git.sh
-#. system/curl.sh
-#. system/fonts.sh
-#. system/backup.sh
-
-#. applications/discord.sh
-#. applications/vscode.sh
-#. applications/git-kraken.sh
-#. applications/heroku-cli.sh
-#. applications/jetbrains.sh
-#. applications/database.sh
-#. applications/insomnia.sh
-#. applications/python.sh
-#. applications/node-js.sh
-
-#. browsers/chrome.sh
-#. browsers/firefox.sh
-
-#. terminal/zsh.sh
-#. terminal/oh-my-zsh.sh
-
-#. dracula/gtk.sh
-#. dracula/gnome-terminal.sh
-#. dracula/wallpaper.sh#
-#. dracula/gedit.sh
-#. dracula/insomnia.sh
+. src/anydesk.sh
+. src/backup.sh
+. src/browsers.sh
+. src/curl.sh
+. src/docker.sh
+. src/dracula.sh
+. src/fonts.sh
+. src/git.sh
+. src/heroku.sh
+. src/insomnia.sh
+. src/jetbrains.sh
+. src/node.sh
+. src/os.sh
+. src/postgres.sh
+. src/python.sh
+. src/terminal.sh
+. src/vm.sh
+. src/vpn.sh
+. src/vscode.sh
 
 function init() {
 	echo "------------------------------------------"
-	echo $WELCOME_MSG
-	echo $COPYRIGHT_MSG
-	echo $CONTACT_MSG
+	echo "WELCOME TO INSTALLATION"
+  echo "Setup Ubuntu & Install Development APPs"
+	echo "By Augusto Brito"
 	echo "------------------------------------------"
 	echo
 	echo "Options:"
-	echo "1. Install Ubuntu Environment"
-	echo "2. Install Python Environment"
-	echo "3. Install NodeJS Environment"
-	echo "4. Exit"
+	echo "0. Exit"
+  echo "1. Update Ubuntu & Repositories"
+	echo "2. Install Fonts"
+	echo "3. Install Curl"
+	echo "4. Create Folder Strcuture & Recover Backup"
+  echo "5. Install Git & Setup GitHub"
+  echo "6. Install & Setup Postgres"
+  echo "7. Install Browsers"
+  echo "8. Install & Setup VSCode"
+  echo "9. Install JetBrains Tools"
+  echo "10. Install OpenVPN"
+  echo "11. Install Heroku CLI"
+  echo "12. Install Docker CLI"
+  echo "13. Install Insomnia"
+  echo "14. Install AnyDesk"
+  echo "15. Setup NodeJS Environment"
+  echo "16. Setup Python Environment"
+  echo "17. Install VirtualBox"
+  echo "18. Setup Dracula Theme"
 	echo
 	echo -n "What you want to do? "
 	read option
 	
 	case $option in
-		1) init_ubuntu ;;
-		2) init_python ;;
-		3) init_nodejs ;;
-		4) exit ;;
+		0) exit ;;
+		1) os;;
+		2) fonts;;
+		3) browsers;;
+		4) curl;;
+		5) docker;;
+		6) dracula;;
+		7) anydesk;;
+		8) anydesk;;
+		9) anydesk;;
+		10)anydesk ;;
+		11)anydesk ;;
+		12)anydesk ;;
+		13)anydesk ;;
+		14)anydesk ;;
+		15)anydesk ;;
+		16)anydesk ;;
+		17)anydesk ;;
+		18)anydesk ;;
 		*) "Invalid option." ; echo ; init ;;
 	esac
-}
-
-function init_ubuntu() {
-	echo "Ubuntu"
-	init_git
-}
-
-function init_python() {
-	echo "Python"
-}
-
-function init_nodejs() {
-	echo "NodeJS"
 }
 
 init

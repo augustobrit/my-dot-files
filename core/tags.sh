@@ -1,8 +1,0 @@
-export TAG_OS="[OS]"
-export TAG_GIT="[GIT]"
-export TAG_BROWSER="[BROWSER]"
-export TAG_DRACULA="[DRACULA]"
-export TAG_TERMINAL="[TERMINAL]"
-export TAG_CURL="[CURL]"
-export TAG_SYSTEM="[SYSTEM]"
-export TAG_SETTINGS="[SETTINGS]"

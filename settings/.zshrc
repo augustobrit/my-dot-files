@@ -13,6 +13,9 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+# Yarn Path
+export PATH="$PATH:/opt/yarn-[version]/bin"
+
 # Default Editor
 export EDITOR=/usr/bin/vscode
 
@@ -34,7 +37,11 @@ plugins=(
   git
 )
 
+# Source ZSH
 source $ZSH/oh-my-zsh.sh
+
+# Source NVM
+source ~/.zsh-nvm/zsh-nvm.plugin.zsh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -54,6 +61,7 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+
 # Aliases to most used folders
 alias home='cd ~/'
 alias dls='cd ~/downloads'
@@ -63,7 +71,10 @@ alias github='cd ~/github/'
 alias gist='cd ~/gist/'
 alias sql='cd ~/sql/'
 alias environments='cd ~/environments/'
-alias ec="$EDITOR $HOME/.zshrc"
+alias ezsh="$EDITOR $HOME/.zshrc"
+
+# Alises for OPENVPN3
+alias vpn='sudo openvpn --config $HOME/projects/rbr/RBR.ovpn --auth-user-pass $HOME/projects/rbr/RBR.txt'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -78,14 +89,30 @@ pastefinish() {
   zle -N self-insert $OLD_SELF_INSERT
 }
 
+spaceship_git_user() {
+  spaceship::is_git || return
+
+  local username
+
+  username="$(git config user.name)"
+
+  if [[ -n $username ]]; then
+    spaceship::section \
+      "yellow" \
+      "» [$username] "
+  fi
+}
+
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 
+# Spaceship theme configuration
 SPACESHIP_PROMPT_ORDER=(
 	time
   user          # Username section
   dir           # Current directory section
   host          # Hostname section
+  git_user
   git           # Git section (git_branch + git_status)
   hg            # Mercurial section (hg_branch  + hg_status)
   package
@@ -101,11 +128,11 @@ SPACESHIP_PROMPT_ORDER=(
 )
 
 SPACESHIP_USER_SHOW=always
+SPACESHIP_USER_PREFIX="@"
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_CHAR_SYMBOL="❯"
 SPACESHIP_CHAR_SUFFIX=" "
 SPACESHIP_PROMPT_SEPARATE_LINE=false
-SPACESHIP_USER_SHOW=always
 SPACESHIP_USER_COLOR=cyan
 SPACESHIP_GIT_BRANCH_SHOW=true
 SPACESHIP_DIR_SHOW=true
@@ -132,8 +159,11 @@ zinit light-mode for \
     zinit-zsh/z-a-bin-gem-node
 
 ### End of Zinit's installer chunk
+
+# Zinit custom plugins
 zinit light zdharma/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-history-substring-search
 zinit light zsh-users/zsh-completions
-zinit light buonomo/yarn-completion
+zinit ice atload"zpcdreplay" atclone'./zplug.zsh'
+zinit light g-plane/zsh-yarn-autocompletions
